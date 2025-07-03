@@ -6,7 +6,6 @@ createGrid(gridSize);
 
 container.addEventListener("mouseover", (event) => {
   if (event.target.classList.contains("div-item")) {
-    // event.target.classList.toggle("change-color");
     let div = event.target;
     div.style.backgroundColor = generateColor();
   }
