@@ -45,3 +45,7 @@ body {
 .container > div > * {
   flex: 1;
 }
+
+.opacity {
+  opacity: 0.1;
+}

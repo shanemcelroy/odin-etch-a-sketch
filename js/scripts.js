@@ -1,18 +1,20 @@
 const container = document.querySelector(".container");
-let gridSize = 16;
 const button = document.querySelector("button");
+let gridSize = 16;
 
 createGrid(gridSize);
 
 container.addEventListener("mouseover", (event) => {
   if (event.target.classList.contains("div-item")) {
     let div = event.target;
+    div.classList.add("active");
+    changeOpacity(event);
     div.style.backgroundColor = generateColor();
   }
 });
 
 button.addEventListener("click", () => {
-  let gridSize = validateInput();
+  let gridSize = generateGrid();
   // Resets the grid
   container.textContent = "";
   createGrid(gridSize);
@@ -25,14 +27,14 @@ function createGrid(size) {
     // Create rows
     for (let j = 0; j < size; j++) {
       let row = document.createElement("div");
-      row.classList.add("div-item");
+      row.classList.add("div-item", "opacity");
       column.appendChild(row);
     }
     container.appendChild(column);
   }
 }
 
-function validateInput() {
+function generateGrid() {
   let userInput;
   let isValid = false;
 
@@ -54,4 +56,17 @@ function generateColor() {
   let blue = Math.floor(Math.random() * 256);
 
   return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function changeOpacity(event) {
+  let div = event.target;
+
+  if (div.classList.contains("active")) {
+    let opacity = parseFloat(window.getComputedStyle(div).opacity);
+    if (opacity < 1) {
+      let newOpacity = opacity + 0.1;
+      div.style.opacity = newOpacity;
+    }
+  }
+  return;
 }
