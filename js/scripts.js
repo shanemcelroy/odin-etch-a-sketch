@@ -39,9 +39,9 @@ function generateGrid() {
   let isValid = false;
 
   while (!isValid) {
-    userInput = parseInt(prompt("How many squares per row would you like?"));
+    userInput = Number(prompt("How many squares per row would you like?"));
 
-    if (userInput > 100) {
+    if (userInput > 100 || userInput < 0 || isNaN(userInput)) {
       alert("Please enter a number less than or equal to 100.");
     } else {
       isValid = true;
