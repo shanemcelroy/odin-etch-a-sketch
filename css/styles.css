@@ -17,7 +17,7 @@ body {
   margin: 20px 0 80px;
 }
 
-.btn-grid {
+.btn-div > button {
   padding: 10px 40px;
   background-color: lightpink;
   border-radius: 5px;

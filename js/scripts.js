@@ -1,6 +1,6 @@
 const container = document.querySelector(".container");
 let gridSize = 16;
-const button = document.querySelector(".btn-grid");
+const button = document.querySelector("button");
 
 createGrid(gridSize);
 
