@@ -6,7 +6,9 @@ createGrid(gridSize);
 
 container.addEventListener("mouseover", (event) => {
   if (event.target.classList.contains("div-item")) {
-    event.target.classList.toggle("change-color");
+    // event.target.classList.toggle("change-color");
+    let div = event.target;
+    div.style.backgroundColor = generateColor();
   }
 });
 
@@ -45,4 +47,12 @@ function validateInput() {
     }
   }
   return userInput;
+}
+
+function generateColor() {
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+
+  return `rgb(${red}, ${green}, ${blue})`;
 }
