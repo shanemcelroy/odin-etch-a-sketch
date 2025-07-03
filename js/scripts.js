@@ -1,12 +1,20 @@
 const container = document.querySelector(".container");
-const GRIDSIZE = 16;
+let gridSize = 16;
+const button = document.querySelector(".btn-grid");
 
-createGrid(GRIDSIZE);
+createGrid(gridSize);
 
 container.addEventListener("mouseover", (event) => {
   if (event.target.classList.contains("div-item")) {
     event.target.classList.toggle("change-color");
   }
+});
+
+button.addEventListener("click", () => {
+  let gridSize = validateInput();
+  // Resets the grid
+  container.textContent = "";
+  createGrid(gridSize);
 });
 
 function createGrid(size) {
@@ -17,9 +25,24 @@ function createGrid(size) {
     for (let j = 0; j < size; j++) {
       let row = document.createElement("div");
       row.classList.add("div-item");
-      // row.textContent = i * size + j;
       column.appendChild(row);
     }
     container.appendChild(column);
   }
+}
+
+function validateInput() {
+  let userInput;
+  let isValid = false;
+
+  while (!isValid) {
+    userInput = parseInt(prompt("How many squares per row would you like?"));
+
+    if (userInput > 100) {
+      alert("Please enter a number less than or equal to 100.");
+    } else {
+      isValid = true;
+    }
+  }
+  return userInput;
 }

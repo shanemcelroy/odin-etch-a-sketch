@@ -11,22 +11,41 @@ body {
   height: 100%;
 }
 
+.btn-div {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 80px;
+}
+
+.btn-grid {
+  padding: 10px 40px;
+  background-color: lightpink;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
 .change-color {
   background-color: lightgreen;
 }
 
 .container {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
 }
 
+/* columns */
 .container > div {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
 }
 
+/* divs inside column */
 .container > div > * {
   flex: 1;
 }
